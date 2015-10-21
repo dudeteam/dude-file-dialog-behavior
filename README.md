@@ -15,7 +15,7 @@ bower install dude-file-dialog-behavior --save
 If you want to access the documentation, demo and tests you need to install the following package:
 
 ```
-bower install -g polyserve -p 8080
+bower install -g polyserve
 ```
 
 And run it into the repository's root folder:
@@ -25,6 +25,6 @@ bower install && polyserve
 ```
 
 And open your favorite browser:
-- [http://localhost:8080/components/dude-seed/](http://localhost:8080/components/dude-file-dialog-behavior/) for documentation
+- [http://localhost:8080/components/dude-file-dialog-behavior/](http://localhost:8080/components/dude-file-dialog-behavior/) for documentation
 and demo
-- [http://localhost:8080/components/dude-seed/test](http://localhost:8080/components/dude-file-dialog-behavior/test) for tests
+- [http://localhost:8080/components/dude-file-dialog-behavior/test](http://localhost:8080/components/dude-file-dialog-behavior/test) for tests
