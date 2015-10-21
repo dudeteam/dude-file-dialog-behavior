@@ -1,0 +1,38 @@
+<!--
+Copyright (c) 2015 DudeTeam. All rights reserved.
+-->
+<link rel="import" href="../polymer/polymer.html">
+<!--
+`dude-file-dialog-behavior` is a Polymer behavior to show a file dialog.
+
+@group dude Behaviors
+@behavior dude-file-dialog-behavior
+@demo demo/index.html
+-->
+<script>
+    DudeFileDialogBehavior = {
+
+        /**
+         * Open a file dialog
+         * @param {Object} options
+         * @param {Function} options.success - The callback to be called when files are selected
+         * @param {Boolean?} options.multiple - Allow multiple files to be selected
+         * @param {Array<String>?} options.extensions - Filter by extensions/MIME types
+         */
+        openFileDialog: function (options) {
+            var inputFile = document.createElement("input");
+            inputFile.setAttribute("type", "file");
+            if (options.extensions) {
+                inputFile.setAttribute("accept", options.extensions.join(","));
+            }
+            if (options.multiple) {
+                inputFile.setAttribute("multiple", "");
+            }
+            inputFile.addEventListener("change", function (e) {
+                options.success(e.target.files);
+            });
+            (inputFile.click || inputFile.onclick || function() {}).call(inputFile);
+        }
+
+    };
+</script>

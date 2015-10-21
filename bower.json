@@ -1,0 +1,29 @@
+{
+  "name": "dude-file-dialog-behavior",
+  "version": "0.0.1",
+  "authors": [
+    "Jonathan Picques <jonathan.picques@gmail.com>"
+  ],
+  "description": "Polymer behavior to show a file dialog",
+  "keywords": [
+    "dude",
+    "state"
+  ],
+  "main": "dude-file-dialog-behavior.html",
+  "license": "MIT",
+  "homepage": "https://github.com/dudeteam/dude-file-dialog-behavior/",
+  "ignore": [
+    "/.*",
+    "/test/",
+    "/demo/"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.0.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "web-component-tester": "*",
+    "paper-button": "PolymerElements/paper-button#~1.0.8",
+    "paper-toggle-button": "PolymerElements/paper-toggle-button#~1.0.11"
+  }
+}

@@ -1,0 +1,60 @@
+<!--
+Copyright (c) 2015 DudeTeam. All rights reserved.
+-->
+<link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="../../paper-button/paper-button.html">
+<link rel="import" href="../../paper-toggle-button/paper-toggle-button.html">
+<link rel="import" href="../dude-file-dialog-behavior.html">
+<!--
+`demo-wrapper` is a Polymer element to wrap the behavior demo
+-->
+<dom-module is="demo-wrapper">
+    <template>
+        <div>
+            <paper-toggle-button id="multipleFiles">Multiple Files</paper-toggle-button>
+        </div>
+        <div>
+            <paper-button on-click="_openFileDialog">Open File Dialog</paper-button>
+        </div>
+        <div>
+            <template is="dom-repeat" items="[[ _files ]]" as="file">
+                <div>
+                    <span>[[ file.name ]]</span>
+                    <span>[[ file.size ]]</span> bytes
+                </div>
+            </template>
+        </div>
+    </template>
+    <script>
+        Polymer({
+            is: "demo-wrapper",
+
+            behaviors: [DudeFileDialogBehavior],
+
+            /**
+             * The selected files
+             * @type: {Array<File>}
+             */
+            _files: [],
+
+            /**
+             * Called when clicking in the open file dialog button
+             * @delegate
+             * @private
+             */
+            _openFileDialog: function () {
+                this.openFileDialog({
+                    "multiple": this.$.multipleFiles.checked,
+                    "extensions": ["image/*", "video/*"],
+                    "success": function (fileList) {
+                        var files = [];
+                        for (var i = 0; i < fileList.length; i++) {
+                            files.push(fileList[i]);
+                        }
+                        this.set("_files", files);
+                    }.bind(this)
+                });
+            }
+        });
+    </script>
+</dom-module>
